@@ -11,35 +11,69 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class Config {
 
-    private static final FileConfiguration config = CounterStrike.i.getConfig();
+    private static FileConfiguration config = CounterStrike.i.getConfig();
 
-    public static final String counterTerroristShopName = "Buy Menu - Counter Terrorist";
-    public static final String terroristShopName = "Buy Menu - Terrorist";
+    public static String counterTerroristShopName = "Buy Menu - Counter Terrorist";
+    public static String terroristShopName = "Buy Menu - Terrorist";
 
-    public static final boolean GAME_ENABLED = config.getBoolean("enabled", true);
-    public static final boolean DEBUGGING_ENABLED = config.getBoolean("debug", false);
+    public static boolean GAME_ENABLED = config.getBoolean("enabled", true);
+    public static boolean DEBUGGING_ENABLED = config.getBoolean("debug", false);
 
-    public static final int MIN_PLAYERS = config.getInt("min-players", 5);
-    public static final int MAX_PLAYERS = config.getInt("max-players", 10);
-    public static final int ROUNDS_TO_WIN = config.getInt("rounds-to-win", 16);
-    public static final int MAX_ROUNDS = config.getInt("max-rounds", 30);
+    public static int MIN_PLAYERS = config.getInt("min-players", 5);
+    public static int MAX_PLAYERS = config.getInt("max-players", 10);
+    public static int ROUNDS_TO_WIN = config.getInt("rounds-to-win", 16);
+    public static int MAX_ROUNDS = config.getInt("max-rounds", 30);
 
-    public static final int STARTING_MONEY = config.getInt("starting-money", 800);
-    public static final int MONEY_ON_VICTORY = config.getInt("money-on-win-reward", 3000);
-    public static final int MONEY_ON_LOSS = config.getInt("money-on-loss-reward", 2000);
-    public static final int BOMB_TIMER = config.getInt("bomb-timer", 45);
-    public static final int SHOP_PHASE_DURATION = config.getInt("shop-phase-duration", 15);
-    public static final int MATCH_DURATION = config.getInt("match-duration", 120);
+    public static int STARTING_MONEY = config.getInt("starting-money", 800);
+    public static int MONEY_ON_VICTORY = config.getInt("money-on-win-reward", 3000);
+    public static int MONEY_ON_LOSS = config.getInt("money-on-loss-reward", 2000);
+    public static int BOMB_TIMER = config.getInt("bomb-timer", 45);
+    public static int SHOP_PHASE_DURATION = config.getInt("shop-phase-duration", 15);
+    public static int MATCH_DURATION = config.getInt("match-duration", 120);
 
-    public static final int KNIFE_SPEED = config.getInt("knife-speed", 2);
+    public static int KNIFE_SPEED = config.getInt("knife-speed", 2);
 
-    public static final Material BOMB_MATERIAL = Material.getMaterial(config.getString("bomb-block", "BEDROCK"));
-    public static final float BOMB_DEFUSE_TIME = (float) config.getDouble("bomb-defuse-time", 5f);
+    public static Material BOMB_MATERIAL = Material.getMaterial(config.getString("bomb-block", "BEDROCK"));
+    public static float BOMB_DEFUSE_TIME = (float) config.getDouble("bomb-defuse-time", 5f);
 
-    public static final double SPAWN_RADIUS_X = 7.0;
-    public static final double SPAWN_RADIUS_Z = 7.0;
+    public static double SPAWN_RADIUS_X = 7.0;
+    public static double SPAWN_RADIUS_Z = 7.0;
 
-    public static final boolean FRIENDLY_FIRE_ENABLED = config.getBoolean("friendly-fire-enabled", false);
+    public static boolean FRIENDLY_FIRE_ENABLED = config.getBoolean("friendly-fire-enabled", false);
+    
+    public void reloadConfig(){
+        // Reloads only config file, weapons won't be reloaded!
+        
+        // TODO Implement renaming
+        counterTerroristShopName = "Buy Menu - Counter Terrorist";
+        terroristShopName = "Buy Menu - Terrorist";
+
+        GAME_ENABLED = config.getBoolean("enabled", true);
+        DEBUGGING_ENABLED = config.getBoolean("debug", false);
+
+        MIN_PLAYERS = config.getInt("min-players", 5);
+        MAX_PLAYERS = config.getInt("max-players", 10);
+        ROUNDS_TO_WIN = config.getInt("rounds-to-win", 16);
+        MAX_ROUNDS = config.getInt("max-rounds", 30);
+
+        STARTING_MONEY = config.getInt("starting-money", 800);
+        MONEY_ON_VICTORY = config.getInt("money-on-win-reward", 3000);
+        MONEY_ON_LOSS = config.getInt("money-on-loss-reward", 2000);
+        BOMB_TIMER = config.getInt("bomb-timer", 45);
+        SHOP_PHASE_DURATION = config.getInt("shop-phase-duration", 15);
+        MATCH_DURATION = config.getInt("match-duration", 120);
+
+        KNIFE_SPEED = config.getInt("knife-speed", 2);
+
+        Material BOMB_MATERIAL = Material.getMaterial(config.getString("bomb-block", "BEDROCK"));
+        BOMB_DEFUSE_TIME = (float) config.getDouble("bomb-defuse-time", 5f);
+        
+        // TODO Implement spawn radius
+        SPAWN_RADIUS_X = 7.0;
+        SPAWN_RADIUS_Z = 7.0;
+
+        FRIENDLY_FIRE_ENABLED = config.getBoolean("friendly-fire-enabled", false);
+    }
 
 
     public void loadWeapons() {
